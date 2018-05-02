@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>canvas to img</title>
+</head>
+
+<body>
+<form method="post" action="/upload">
+    <input type="text" name="imgname" id="imgname" />
+    <input type="hidden" name="imgdata" id="imgdata" />
+    <input type="submit" value="save" />
+</form>
+<canvas id="canvas" width="400" height="400"></canvas>
+<script>
+(function(){
+    var canvas=document.getElementById("canvas");
+    var imgname=document.getElementById("imgname");
+    var imgdata=document.getElementById("imgdata");
+    var ctx=canvas.getContext('2d');
+    ctx.fillStyle="#ff0000";
+    ctx.fillRect(0,0,80,100);
+    imgdata.value=canvas.toDataURL();
+    })()
+</script>
+</body>
+</html>
