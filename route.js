@@ -1,13 +1,24 @@
-function route(handle, pathname, response, postData) {
-  if (typeof handle[pathname] === 'function') {
-    console.log("route:",pathname);
-    handle[pathname](response, postData);
+// function route(handle, pathname, response, postData) {
+//   if (typeof handle[pathname] === 'function') {
+//     console.log("route:",pathname);
+//     handle[pathname](response, postData);
 
-  } else {
-    response.writeHead(404, {"Content-Type": "text/plain"});
-    response.write("404 Not found");
-    response.end();
-  }
+//   } else {
+//     response.writeHead(404, {"Content-Type": "text/plain"});
+//     response.write("404 Not found");
+//     response.end();
+//   }
+// }
+
+// exports.route = route;
+
+function route(handle,pathname,response,postData){
+    if(typeof handle[pathname]==='function'){
+        handle[pathname](response,postData);
+    }else{
+        response.writeHead(404,{"Content-Type":"text/plain"});
+        response.write("404 Not found");
+        response.end();
+    }
 }
-
-exports.route = route;
+exports.route=route;

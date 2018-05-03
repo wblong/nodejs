@@ -1,0 +1,7 @@
+h3. test1
+h5. test2
+{code:js}
+  var spendTime = process.hrtime(timeStart);
+  console.log(spendTime);
+  console.log("Cost time:" + (spendTime[0] * 1000 + spendTime[1] / 1000 / 1000) + "ms");
+{code}
